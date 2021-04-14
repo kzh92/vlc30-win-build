@@ -31,6 +31,7 @@
 #include <vlc_vout_display.h>
 
 #include <windows.h>
+#include <sdkddkver.h>
 #include <versionhelpers.h>
 
 #define GLEW_STATIC

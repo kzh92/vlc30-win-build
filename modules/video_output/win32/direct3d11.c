@@ -37,6 +37,8 @@
 #include <assert.h>
 #include <math.h>
 
+#include "dxgi.h"
+
 #define COBJMACROS
 #include <initguid.h>
 #include <d3d11.h>
@@ -567,14 +569,14 @@ static HRESULT UpdateBackBuffer(vout_display_t *vd)
     }
 
     /* TODO detect is the size is the same as the output and switch to fullscreen mode */
-    hr = IDXGISwapChain_ResizeBuffers(sys->dxgiswapChain, 0, i_width, i_height,
+    hr = IDXGISwapChain2_ResizeBuffers(sys->dxgiswapChain, 0, i_width, i_height,
         DXGI_FORMAT_UNKNOWN, 0);
     if (FAILED(hr)) {
        msg_Err(vd, "Failed to resize the backbuffer. (hr=0x%lX)", hr);
        return hr;
     }
 
-    hr = IDXGISwapChain_GetBuffer(sys->dxgiswapChain, 0, &IID_ID3D11Texture2D, (LPVOID *)&pBackBuffer);
+    hr = IDXGISwapChain2_GetBuffer(sys->dxgiswapChain, 0, &IID_ID3D11Texture2D, (LPVOID *)&pBackBuffer);
     if (FAILED(hr)) {
        msg_Err(vd, "Could not get the backbuffer for the Swapchain. (hr=0x%lX)", hr);
        return hr;
@@ -1104,7 +1106,7 @@ static void D3D11SetColorSpace(vout_display_t *vd)
     IDXGISwapChain3 *dxgiswapChain3 = NULL;
     sys->display.colorspace = &color_spaces[0];
 
-    hr = IDXGISwapChain_QueryInterface( sys->dxgiswapChain, &IID_IDXGISwapChain3, (void **)&dxgiswapChain3);
+    hr = IDXGISwapChain3_QueryInterface( sys->dxgiswapChain, &IID_IDXGISwapChain3, (void **)&dxgiswapChain3);
     if (FAILED(hr)) {
         msg_Warn(vd, "could not get a IDXGISwapChain3");
         goto done;
@@ -1147,10 +1149,10 @@ static void D3D11SetColorSpace(vout_display_t *vd)
     }
 
 #ifdef HAVE_DXGI1_6_H
-    if (SUCCEEDED(IDXGISwapChain_GetContainingOutput( sys->dxgiswapChain, &dxgiOutput )))
+    if (SUCCEEDED(IDXGISwapChain2_GetContainingOutput( sys->dxgiswapChain, &dxgiOutput )))
     {
         IDXGIOutput6 *dxgiOutput6 = NULL;
-        if (SUCCEEDED(IDXGIOutput_QueryInterface( dxgiOutput, &IID_IDXGIOutput6, (void **)&dxgiOutput6 )))
+        if (SUCCEEDED(IDXGIOutput3_QueryInterface( dxgiOutput, &IID_IDXGIOutput6, (void **)&dxgiOutput6 )))
         {
             DXGI_OUTPUT_DESC1 desc1;
             if (SUCCEEDED(IDXGIOutput6_GetDesc1( dxgiOutput6, &desc1 )))
@@ -1176,7 +1178,7 @@ static void D3D11SetColorSpace(vout_display_t *vd)
             }
             IDXGIOutput6_Release( dxgiOutput6 );
         }
-        IDXGIOutput_Release( dxgiOutput );
+        IDXGIOutput4_Release( dxgiOutput );
     }
 #endif
 
@@ -1267,8 +1269,8 @@ static int Direct3D11Open(vout_display_t *vd)
        return VLC_EGENERIC;
     }
 
-    hr = IDXGIAdapter_GetParent(dxgiadapter, &IID_IDXGIFactory2, (void **)&dxgifactory);
-    IDXGIAdapter_Release(dxgiadapter);
+    hr = IDXGIAdapter2_GetParent(dxgiadapter, &IID_IDXGIFactory2, (void **)&dxgifactory);
+    IDXGIAdapter2_Release(dxgiadapter);
     if (FAILED(hr)) {
        msg_Err(vd, "Could not get the DXGI Factory. (hr=0x%lX)", hr);
        return VLC_EGENERIC;
@@ -1290,7 +1292,7 @@ static int Direct3D11Open(vout_display_t *vd)
     }
 #endif
 
-    IDXGISwapChain_QueryInterface( sys->dxgiswapChain, &IID_IDXGISwapChain4, (void **)&sys->dxgiswapChain4);
+    IDXGISwapChain3_QueryInterface( sys->dxgiswapChain, &IID_IDXGISwapChain4, (void **)&sys->dxgiswapChain4);
 
     D3D11SetColorSpace(vd);
 
@@ -1433,12 +1435,12 @@ static void Direct3D11Close(vout_display_t *vd)
     Direct3D11DestroyResources(vd);
     if (sys->dxgiswapChain4)
     {
-        IDXGISwapChain_Release(sys->dxgiswapChain4);
+        IDXGISwapChain3_Release(sys->dxgiswapChain4);
         sys->dxgiswapChain4 = NULL;
     }
     if (sys->dxgiswapChain)
     {
-        IDXGISwapChain_Release(sys->dxgiswapChain);
+        IDXGISwapChain3_Release(sys->dxgiswapChain);
         sys->dxgiswapChain = NULL;
     }
 
@@ -1505,9 +1507,9 @@ static bool BogusZeroCopy(vout_display_t *vd)
         return false;
 
     DXGI_ADAPTER_DESC adapterDesc;
-    if (FAILED(IDXGIAdapter_GetDesc(p_adapter, &adapterDesc)))
+    if (FAILED(IDXGIAdapter2_GetDesc(p_adapter, &adapterDesc)))
         return false;
-    IDXGIAdapter_Release(p_adapter);
+    IDXGIAdapter2_Release(p_adapter);
 
     if (adapterDesc.VendorId != GPU_MANUFACTURER_AMD)
         return false;
