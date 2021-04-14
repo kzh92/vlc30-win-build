@@ -1,0 +1,16 @@
+prefix=/home/vlc_build/work/vlc/vlc-3.0.12/contrib/i686-w64-mingw32
+exec_prefix=${prefix}
+libdir=/home/vlc_build/work/vlc/vlc-3.0.12/contrib/i686-w64-mingw32/lib
+includedir=/home/vlc_build/work/vlc/vlc-3.0.12/contrib/i686-w64-mingw32/include/orc-0.4
+toolsdir=${exec_prefix}/bin
+
+
+Name: orc-0.4
+Description: Library of Optimized Inner Loops Runtime Compiler
+Version: 0.4.18
+Libs: -L${libdir} -lorc-0.4
+Libs.private: -lm  
+Cflags: -I${includedir}
+
+orcc=${toolsdir}/orcc.exe
+

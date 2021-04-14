@@ -1,0 +1,9 @@
+prefix=/home/vlc_build/work/vlc/vlc-3.0.12/contrib/i686-w64-mingw32
+libdir=${prefix}/lib
+includedir=${prefix}/include
+
+Name: libdav1d
+Description: AV1 decoding library
+Version: 0.7.1
+Libs: -L${libdir} -ldav1d
+Cflags: -I${includedir}

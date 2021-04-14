@@ -1,0 +1,14 @@
+prefix=/home/vlc_build/work/vlc/vlc-3.0.12/contrib/i686-w64-mingw32
+exec_prefix=${prefix}
+libdir=${prefix}/lib
+includedir=${prefix}/include
+
+Name: libpostproc
+Description: FFmpeg/Libav postprocessing library
+Version: 52.0.100
+Requires: libavutil
+Requires.private: 
+Conflicts:
+Libs: -L${libdir} -lpostproc 
+Libs.private: 
+Cflags: -I${includedir}

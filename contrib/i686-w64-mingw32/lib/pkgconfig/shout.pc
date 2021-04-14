@@ -1,0 +1,15 @@
+# libshout pkg-config source file
+
+prefix=/home/vlc_build/work/vlc/vlc-3.0.12/contrib/i686-w64-mingw32
+exec_prefix=${prefix}
+libdir=/home/vlc_build/work/vlc/vlc-3.0.12/contrib/i686-w64-mingw32/lib
+includedir=/home/vlc_build/work/vlc/vlc-3.0.12/contrib/i686-w64-mingw32/include
+cppflags= -I/home/vlc_build/work/vlc/vlc-3.0.12/contrib/i686-w64-mingw32/include
+cflags_only=
+
+Name: Shout
+Description: Audio streaming library for icecast encoders
+Version: 2.4.1
+Cflags: -I${includedir}  
+Libs:  -L${libdir} -lshout 
+Requires:   ogg, vorbis, theora, speex

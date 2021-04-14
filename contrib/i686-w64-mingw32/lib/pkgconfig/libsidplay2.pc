@@ -1,0 +1,11 @@
+prefix=/home/vlc_build/work/vlc/vlc-3.0.12/contrib/i686-w64-mingw32
+exec_prefix=${prefix}
+libdir=/home/vlc_build/work/vlc/vlc-3.0.12/contrib/i686-w64-mingw32/lib
+includedir=/home/vlc_build/work/vlc/vlc-3.0.12/contrib/i686-w64-mingw32/include
+builders=/home/vlc_build/work/vlc/vlc-3.0.12/contrib/i686-w64-mingw32/lib/sidplay/builders
+
+Name: libsidplay
+Description: C64 cycle exact stereo sidplayer library.
+Version: 2.1.1
+Libs: ${libdir}/libsidplay2.la
+Cflags: -DHAVE_UNIX -I${includedir}

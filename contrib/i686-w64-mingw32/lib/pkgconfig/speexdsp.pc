@@ -1,0 +1,14 @@
+# libspeexdsp pkg-config source file
+
+prefix=/home/vlc_build/work/vlc/vlc-3.0.12/contrib/i686-w64-mingw32
+exec_prefix=${prefix}
+libdir=/home/vlc_build/work/vlc/vlc-3.0.12/contrib/i686-w64-mingw32/lib
+includedir=/home/vlc_build/work/vlc/vlc-3.0.12/contrib/i686-w64-mingw32/include
+
+Name: speexdsp
+Description: Speexdsp is a speech processing library that goes along with the Speex codec
+Version: 1.2rc3
+Conflicts:
+Cflags: -I${includedir}
+Libs:  -L${libdir} -lspeexdsp  -lm
+Requires:  

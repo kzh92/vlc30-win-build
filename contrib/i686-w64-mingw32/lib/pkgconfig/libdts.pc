@@ -1,0 +1,11 @@
+prefix=/home/vlc_build/work/vlc/vlc-3.0.12/contrib/i686-w64-mingw32
+exec_prefix=${prefix}
+libdir=/home/vlc_build/work/vlc/vlc-3.0.12/contrib/i686-w64-mingw32/lib
+includedir=/home/vlc_build/work/vlc/vlc-3.0.12/contrib/i686-w64-mingw32/include
+
+Name: libdts
+Description: Backward compatibility place-holder for libdca.
+Version: 0.0.7
+Requires: libdca = 0.0.7
+Libs: -L${libdir} -ldca
+Cflags: -I${includedir}/libdca

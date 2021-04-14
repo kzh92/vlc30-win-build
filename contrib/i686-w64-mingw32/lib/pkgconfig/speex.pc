@@ -1,0 +1,14 @@
+# libspeex pkg-config source file
+
+prefix=/home/vlc_build/work/vlc/vlc-3.0.12/contrib/i686-w64-mingw32
+exec_prefix=${prefix}
+libdir=/home/vlc_build/work/vlc/vlc-3.0.12/contrib/i686-w64-mingw32/lib
+includedir=/home/vlc_build/work/vlc/vlc-3.0.12/contrib/i686-w64-mingw32/include
+
+Name: speex
+Description: Speex is an audio codec tuned for speech
+Version: 1.2.0
+Conflicts:
+Cflags: -I${includedir}
+Libs:  -L${libdir} -lspeex  -lm
+Requires:  

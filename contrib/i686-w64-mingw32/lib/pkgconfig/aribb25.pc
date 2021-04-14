@@ -1,0 +1,17 @@
+prefix=/home/vlc_build/work/vlc/vlc-3.0.12/contrib/i686-w64-mingw32
+exec_prefix=${prefix}
+includedir=/home/vlc_build/work/vlc/vlc-3.0.12/contrib/i686-w64-mingw32/include
+datarootdir=/home/vlc_build/work/vlc/vlc-3.0.12/contrib/i686-w64-mingw32/share
+libdir=/home/vlc_build/work/vlc/vlc-3.0.12/contrib/i686-w64-mingw32/lib
+datadir=${datarootdir}
+pkgincludedir=/home/vlc_build/work/vlc/vlc-3.0.12/contrib/i686-w64-mingw32/include/aribb25
+pkgdatadir=${datadir}/aribb25
+pkglibdir=${libdir}/aribb25
+pluginsdir=${pkglibdir}/plugins
+
+Name: ARIB B25 Library
+Description: ARIB STD B25
+Version: 0.2.7
+Cflags: -I${includedir}
+Requires.private: 
+Libs: -L${libdir} -laribb25 -lwinscard

@@ -1,0 +1,11 @@
+prefix=/home/vlc_build/work/vlc/vlc-3.0.12/contrib/i686-w64-mingw32
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: x265
+Description: H.265/HEVC video encoder
+Version: 2.7
+Cflags: -I${includedir}
+Libs:  -L${libdir} -lx265  -lstdc++ -lgcc_s -lgcc -lgcc_s -lgcc
+Requires:  

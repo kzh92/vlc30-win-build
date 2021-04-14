@@ -1,0 +1,11 @@
+prefix=/home/vlc_build/work/vlc/vlc-3.0.12/contrib/i686-w64-mingw32
+exec_prefix=${prefix}
+libdir=${prefix}/lib
+includedir=${prefix}/include
+
+Name:             libmatroska
+Description:      Library for parsing EBML data structures
+Version:          1.6.0
+Cflags:           -I${includedir}
+Libs:              -L${libdir} -lmatroska 
+Requires:   libebml

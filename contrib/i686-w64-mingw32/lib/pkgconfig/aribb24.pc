@@ -1,0 +1,17 @@
+prefix=/home/vlc_build/work/vlc/vlc-3.0.12/contrib/i686-w64-mingw32
+exec_prefix=${prefix}
+includedir=/home/vlc_build/work/vlc/vlc-3.0.12/contrib/i686-w64-mingw32/include
+datarootdir=/home/vlc_build/work/vlc/vlc-3.0.12/contrib/i686-w64-mingw32/share
+libdir=/home/vlc_build/work/vlc/vlc-3.0.12/contrib/i686-w64-mingw32/lib
+datadir=${datarootdir}
+pkgincludedir=/home/vlc_build/work/vlc/vlc-3.0.12/contrib/i686-w64-mingw32/include/aribb24
+pkgdatadir=${datadir}/aribb24
+pkglibdir=${libdir}/aribb24
+pluginsdir=${pkglibdir}/plugins
+
+Name: ARIB B24 Library
+Description: ARIB B24 Captions decoder
+Version: 1.0.3
+Cflags: -I${includedir}
+Libs:  -L${libdir} -laribb24  -lm
+Requires:  libpng 

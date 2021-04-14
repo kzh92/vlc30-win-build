@@ -1,0 +1,10 @@
+prefix=/home/vlc_build/work/vlc/vlc-3.0.12/contrib/i686-w64-mingw32
+exec_prefix=${prefix}
+libdir=/home/vlc_build/work/vlc/vlc-3.0.12/contrib/i686-w64-mingw32/lib
+includedir=/home/vlc_build/work/vlc/vlc-3.0.12/contrib/i686-w64-mingw32/include
+
+Name: libdvdcss
+Description: DVD access and decryption library.
+Version: 1.4.2
+Libs: -L${libdir} -ldvdcss
+Cflags: -I${includedir} -I${includedir}/dvdcss

@@ -1,0 +1,13 @@
+prefix=/home/vlc_build/work/vlc/vlc-3.0.12/contrib/i686-w64-mingw32
+exec_prefix=/home/vlc_build/work/vlc/vlc-3.0.12/contrib/i686-w64-mingw32
+libdir=/home/vlc_build/work/vlc/vlc-3.0.12/contrib/i686-w64-mingw32/lib
+includedir=/home/vlc_build/work/vlc/vlc-3.0.12/contrib/i686-w64-mingw32/include
+pkgdatadir=/home/vlc_build/work/vlc/vlc-3.0.12/contrib/i686-w64-mingw32/Resources
+sysconfdir=/home/vlc_build/work/vlc/vlc-3.0.12/contrib/i686-w64-mingw32/Resources
+
+Name: libprojectM
+Version: 2.0.0
+Description: projectM - OpenGL Milkdrop
+Requires:
+Libs: -L${libdir} -lprojectM -lMilkdropPresetFactory -lRenderer -lglu32 -lglew32 -lopengl32
+Cflags: -I${includedir} 

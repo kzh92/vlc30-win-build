@@ -1,0 +1,10 @@
+prefix=/home/vlc_build/work/vlc/vlc-3.0.12/contrib/i686-w64-mingw32
+exec_prefix=${prefix}
+libdir=${prefix}/lib
+includedir=${prefix}/include
+
+Name:        libebml
+Description: Library for parsing EBML data structures
+Version:     1.4.0
+Libs:        -L${libdir} -lebml
+Cflags:      -I${includedir} -DHAVE_WINAPIFAMILY_H -DEBML_STATIC_DEFINE

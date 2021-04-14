@@ -1,0 +1,11 @@
+prefix=/home/vlc_build/work/vlc/vlc-3.0.12/contrib/i686-w64-mingw32
+exec_prefix=${prefix}
+libdir=/home/vlc_build/work/vlc/vlc-3.0.12/contrib/i686-w64-mingw32/lib
+includedir=/home/vlc_build/work/vlc/vlc-3.0.12/contrib/i686-w64-mingw32/include
+
+Name: libbluray
+Description: library supporting Blu-ray playback
+Version: 1.2.1
+Cflags: -I${includedir}
+Libs:  -L${libdir} -lbluray    -lgdi32
+Requires:    libxml-2.0 >= 2.6 freetype2

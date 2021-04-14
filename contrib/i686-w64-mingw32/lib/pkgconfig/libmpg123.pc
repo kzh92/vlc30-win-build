@@ -1,0 +1,11 @@
+prefix=/home/vlc_build/work/vlc/vlc-3.0.12/contrib/i686-w64-mingw32
+exec_prefix=${prefix}
+libdir=/home/vlc_build/work/vlc/vlc-3.0.12/contrib/i686-w64-mingw32/lib
+includedir=/home/vlc_build/work/vlc/vlc-3.0.12/contrib/i686-w64-mingw32/include
+
+Name: libmpg123
+Description: An optimised MPEG Audio decoder
+Version: 1.26.2
+Cflags: -I${includedir} 
+Libs:  -L${libdir} -lmpg123   -lm -lshlwapi 
+Requires:  

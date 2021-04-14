@@ -1,0 +1,12 @@
+prefix=/home/vlc_build/work/vlc/vlc-3.0.12/contrib/i686-w64-mingw32
+exec_prefix=/home/vlc_build/work/vlc/vlc-3.0.12/contrib/i686-w64-mingw32
+libdir=/home/vlc_build/work/vlc/vlc-3.0.12/contrib/i686-w64-mingw32/lib
+includedir=/home/vlc_build/work/vlc/vlc-3.0.12/contrib/i686-w64-mingw32/include
+
+Name: chromaprint
+Description: Audio fingerprint library
+URL: http://acoustid.org/chromaprint
+Version: 1.4.2
+Libs: -L/home/vlc_build/work/vlc/vlc-3.0.12/contrib/i686-w64-mingw32/lib -lchromaprint -L/home/vlc_build/work/vlc/vlc-3.0.12/contrib/i686-w64-mingw32/lib -lavcodec -lm -lz -lgsm -lmp3lame -lopenjp2 -lm -lpthread -lole32 -luser32 -lavutil -lm -luser32 -ladvapi32
+Cflags: -I/home/vlc_build/work/vlc/vlc-3.0.12/contrib/i686-w64-mingw32/include
+

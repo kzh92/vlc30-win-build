@@ -1,0 +1,11 @@
+prefix=/home/vlc_build/work/vlc/vlc-3.0.12/contrib/i686-w64-mingw32
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: srt
+Description: SRT library set
+Version: 1.2.3
+Cflags: -I${includedir} -I${includedir}/srt
+Libs:  -L${libdir} -lsrt      -L/home/vlc_build/work/vlc/vlc-3.0.12/contrib/i686-w64-mingw32/lib -lgnutls -lws2_32 -lpthread -lws2_32 -lgmp -latomic -lcrypt32 -lnettle -lz -lpthreadGC2 -lws2_32 -lstdc++ -lmingw32 -lgcc_s -lgcc -lmoldname -lmingwex -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 -lgcc_s -lgcc -lmoldname -lmingwex
+Requires:   gnutls nettle zlib

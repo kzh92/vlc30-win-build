@@ -1,0 +1,5 @@
+Name: libplacebo
+Description: Reusable library for GPU-accelerated video/image rendering
+Version: 0.2.1
+Libs: -L/home/vlc_build/work/vlc/vlc-3.0.12/contrib/i686-w64-mingw32/lib -lplacebo -lpthreadGC2 -lws2_32
+Cflags: -I/home/vlc_build/work/vlc/vlc-3.0.12/contrib/i686-w64-mingw32/include

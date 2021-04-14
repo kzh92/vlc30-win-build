@@ -1,0 +1,12 @@
+prefix=/home/vlc_build/work/vlc/vlc-3.0.12/contrib/i686-w64-mingw32
+exec_prefix=${prefix}
+libdir=/home/vlc_build/work/vlc/vlc-3.0.12/contrib/i686-w64-mingw32/lib
+includedir=/home/vlc_build/work/vlc/vlc-3.0.12/contrib/i686-w64-mingw32/include
+
+Name: LibVNCClient
+Description: A library for easy implementation of a VNC client.
+Version: 0.9.10
+Cflags: -I${includedir}
+
+Libs:  -L${libdir} -lvncclient  -lpthread -lz -lpng -ljpeg -L/home/vlc_build/work/vlc/vlc-3.0.12/contrib/i686-w64-mingw32/lib -lgcrypt -lgpg-error -L/home/vlc_build/work/vlc/vlc-3.0.12/contrib/i686-w64-mingw32/lib -lgnutls -lws2_32 -lpthread -lws2_32 -lgmp -latomic -lcrypt32 -lws2_32 -lws2_32
+Requires:   zlib, gnutls

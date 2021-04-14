@@ -1,0 +1,10 @@
+prefix=/home/vlc_build/work/vlc/vlc-3.0.12/contrib/i686-w64-mingw32
+exec_prefix=${prefix}
+libdir=/home/vlc_build/work/vlc/vlc-3.0.12/contrib/i686-w64-mingw32/lib
+includedir=/home/vlc_build/work/vlc/vlc-3.0.12/contrib/i686-w64-mingw32/include
+
+Name: libmpeg2
+Description: MPEG-1 and MPEG-2 stream decoding library
+Version: 0.5.1
+Libs: -L${libdir} -lmpeg2
+Cflags: -I${includedir}/mpeg2dec

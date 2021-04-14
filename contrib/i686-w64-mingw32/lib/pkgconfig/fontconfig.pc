@@ -1,0 +1,16 @@
+prefix=/home/vlc_build/work/vlc/vlc-3.0.12/contrib/i686-w64-mingw32
+exec_prefix=${prefix}
+libdir=/home/vlc_build/work/vlc/vlc-3.0.12/contrib/i686-w64-mingw32/lib
+includedir=/home/vlc_build/work/vlc/vlc-3.0.12/contrib/i686-w64-mingw32/include
+sysconfdir=${prefix}/etc
+localstatedir=${prefix}/var
+PACKAGE=fontconfig
+confdir=${sysconfdir}/fonts
+cachedir=LOCAL_APPDATA_FONTCONFIG_CACHE
+
+Name: Fontconfig
+Description: Font configuration and customization library
+Version: 2.12.3
+Cflags: -I${includedir}  -I/home/vlc_build/work/vlc/vlc-3.0.12/contrib/i686-w64-mingw32/include/freetype2 -I/home/vlc_build/work/vlc/vlc-3.0.12/contrib/i686-w64-mingw32/include  -DLIBXML_STATIC -I/home/vlc_build/work/vlc/vlc-3.0.12/contrib/i686-w64-mingw32/include/libxml2
+Libs:  -L${libdir} -lfontconfig   -L/home/vlc_build/work/vlc/vlc-3.0.12/contrib/i686-w64-mingw32/lib -lfreetype -lz  -L/home/vlc_build/work/vlc/vlc-3.0.12/contrib/i686-w64-mingw32/lib -lxml2 -lws2_32
+Requires:   freetype2   libxml-2.0

@@ -1,0 +1,13 @@
+# libaom pkg-config.
+prefix=/home/vlc_build/work/vlc/vlc-3.0.12/contrib/i686-w64-mingw32
+exec_prefix=${prefix}/bin
+libdir=${prefix}/lib
+includedir=${prefix}/include
+
+Name: aom
+Description: AV1 codec library v0.1.0.
+Version: 0.1.0
+Conflicts:
+Cflags: -I${prefix}/include
+Libs:  -L${prefix}/lib -laom -lm -lpthread  -lm -lpthread
+Requires:  

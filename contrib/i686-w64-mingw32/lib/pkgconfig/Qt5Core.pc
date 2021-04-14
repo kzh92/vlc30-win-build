@@ -1,0 +1,15 @@
+prefix=/home/vlc_build/work/vlc/vlc-3.0.12/contrib/i686-w64-mingw32
+exec_prefix=${prefix}
+libdir=${prefix}/lib
+includedir=${prefix}/include
+
+host_bins=${prefix}/bin
+qt_config=minimal-config small-config medium-config large-config full-config no-pkg-config c++11 c++14 c++1z accessibility static qpa reduce_relocations getaddrinfo jpeg png no-gif no-freetype harfbuzz zlib concurrent no-qml-debug release
+
+Name: Qt5 Core
+Description: Qt Core module
+Version: 5.6.3
+Libs: -L${libdir} -lQt5Core 
+Libs.private: -lole32 -luuid -lws2_32 -ladvapi32 -lshell32 -luser32 -lkernel32 -lmpr -L/home/vlc_build/work/vlc/vlc-3.0.12/contrib/i686-w64-mingw32/lib /home/vlc_build/work/vlc/vlc-3.0.12/contrib/i686-w64-mingw32/lib/libqtpcre.a 
+Cflags: -I${includedir}/QtCore -I${includedir}
+

@@ -1,0 +1,11 @@
+prefix=/home/vlc_build/work/vlc/vlc-3.0.12/contrib/i686-w64-mingw32
+exec_prefix=${prefix}
+libdir=/home/vlc_build/work/vlc/vlc-3.0.12/contrib/i686-w64-mingw32/lib
+includedir=/home/vlc_build/work/vlc/vlc-3.0.12/contrib/i686-w64-mingw32/include
+
+Name: libmfx
+Description: Intel Media SDK Dispatched static library
+Version: 1.27
+Libs: -L${libdir} -lmfx -lstdc++   
+Libs.private:
+Cflags: -I${includedir}

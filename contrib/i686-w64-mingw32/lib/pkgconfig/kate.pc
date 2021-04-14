@@ -1,0 +1,15 @@
+# This is the pkg-config file for libkate
+prefix=/home/vlc_build/work/vlc/vlc-3.0.12/contrib/i686-w64-mingw32
+exec_prefix=${prefix}
+libdir=/home/vlc_build/work/vlc/vlc-3.0.12/contrib/i686-w64-mingw32/lib
+includedir=/home/vlc_build/work/vlc/vlc-3.0.12/contrib/i686-w64-mingw32/include
+
+Name: Kate
+Description: libkate is a codec library for the Kate bitstream format
+Version: 0.4.1
+URL: http://libkate.googlecode.com/
+Requires: 
+Conflicts: 
+Libs: -L${libdir} -lkate
+Libs.private: 
+Cflags: -I${includedir}

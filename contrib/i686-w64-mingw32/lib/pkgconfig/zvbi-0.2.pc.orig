@@ -1,0 +1,11 @@
+prefix=/home/vlc_build/work/vlc/vlc-3.0.12/contrib/i686-w64-mingw32
+exec_prefix=${prefix}
+libdir=/home/vlc_build/work/vlc/vlc-3.0.12/contrib/i686-w64-mingw32/lib
+includedir=/home/vlc_build/work/vlc/vlc-3.0.12/contrib/i686-w64-mingw32/include
+
+Name: ZVBI 
+Description: VBI Capturing and Decoding Library
+Requires: 
+Version: 0.2.35
+Libs: -L${libdir} -lzvbi -lm -lpthreadGC2 -lwsock32  -lpng -lz  -lm -liconv
+Cflags: -I${includedir}

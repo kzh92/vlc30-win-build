@@ -1,0 +1,14 @@
+# theoraenc installed pkg-config file
+
+prefix=/home/vlc_build/work/vlc/vlc-3.0.12/contrib/i686-w64-mingw32
+exec_prefix=${prefix}
+libdir=/home/vlc_build/work/vlc/vlc-3.0.12/contrib/i686-w64-mingw32/lib
+includedir=/home/vlc_build/work/vlc/vlc-3.0.12/contrib/i686-w64-mingw32/include
+
+Name: theora
+Description: Theora video codec (encoder)
+Version: 1.1.1
+Requires: theoradec, ogg >= 1.1
+Conflicts:
+Libs: -L${libdir} -ltheoraenc
+Cflags: -I${includedir}

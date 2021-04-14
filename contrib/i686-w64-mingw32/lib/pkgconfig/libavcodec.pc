@@ -1,0 +1,14 @@
+prefix=/home/vlc_build/work/vlc/vlc-3.0.12/contrib/i686-w64-mingw32
+exec_prefix=${prefix}
+libdir=/home/vlc_build/work/vlc/vlc-3.0.12/contrib/i686-w64-mingw32/lib
+includedir=/home/vlc_build/work/vlc/vlc-3.0.12/contrib/i686-w64-mingw32/include
+
+Name: libavcodec
+Description: FFmpeg codec library
+Version: 58.6.103
+Requires: libavutil >= 56.5.100
+Requires.private: 
+Conflicts:
+Libs: -L${libdir}  -lavcodec -lm -lz -lgsm -lmp3lame -L/home/vlc_build/work/vlc/vlc-3.0.12/contrib/i686-w64-mingw32/lib -lopenjp2 -lm -lpthread -lole32 -luser32
+Libs.private: 
+Cflags: -I${includedir}

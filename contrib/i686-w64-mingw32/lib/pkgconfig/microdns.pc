@@ -1,0 +1,10 @@
+prefix=/home/vlc_build/work/vlc/vlc-3.0.12/contrib/i686-w64-mingw32
+exec_prefix=${prefix}
+libdir=${prefix}/lib
+includedir=${prefix}/include
+
+Name: microDNS
+Description: mDNS simple implementation
+Version: 0.1.2
+Libs: -L${libdir} -lmicrodns -lws2_32 -liphlpapi
+Cflags: -I${includedir}
