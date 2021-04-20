@@ -37,6 +37,7 @@
 
 #include <QObject>
 #include <QEvent>
+#include <QAction>
 class QSignalMapper;
 
 enum { NORMAL,    /* loop: 0, repeat: 0 */
@@ -157,6 +158,8 @@ private:
     float           f_cache;
     bool            b_video;
     mtime_t         timeA, timeB;
+    QAction*        m_freqActions[3];
+    unsigned int    m_freqCur;
 
     void customEvent( QEvent * );
 
@@ -194,6 +197,12 @@ public slots:
     void littleslower();
     void normalRate();
     void setRate( int );
+    void setFreq441();
+    void setFreq432();
+    void setFreq528();
+    void setFreq( int );
+    void setFreqActions(int, QAction*);
+    unsigned int getFreqCur();
     /* Jumping */
     void jumpFwd();
     void jumpBwd();

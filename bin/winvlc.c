@@ -250,9 +250,9 @@ int WINAPI WinMain( HINSTANCE hInstance, HINSTANCE hPrevInstance,
     vlc = libvlc_new (argc, (const char **)argv);
     if (vlc != NULL)
     {
-        libvlc_set_app_id (vlc, "org.VideoLAN.VLC", PACKAGE_VERSION,
+        libvlc_set_app_id (vlc, "org.HZPlayer.com", PACKAGE_VERSION,
                            PACKAGE_NAME);
-        libvlc_set_user_agent (vlc, "VLC media player", "VLC/"PACKAGE_VERSION);
+        libvlc_set_user_agent (vlc, "HZ Player", "HZPlayer/"PACKAGE_VERSION);
         libvlc_add_intf (vlc, "hotkeys,none");
         libvlc_add_intf (vlc, "globalhotkeys,none");
         libvlc_add_intf (vlc, NULL);

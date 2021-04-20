@@ -77,6 +77,8 @@ InputManager::InputManager( MainInputManager *mim, intf_thread_t *_p_intf) :
     timeA        = 0;
     timeB        = 0;
     f_cache      = -1.; /* impossible initial value, different from all */
+    memset(m_freqActions, 0, sizeof(m_freqActions));
+    m_freqCur    = 0;
     registerAndCheckEventIds( IMEvent::PositionUpdate, IMEvent::FullscreenControlPlanHide );
     registerAndCheckEventIds( PLEvent::PLItemAppended, PLEvent::PLEmpty );
 }
@@ -921,6 +923,56 @@ void InputManager::setRate( int new_rate )
 {
     var_SetFloat( THEPL, "rate",
                  (float)INPUT_RATE_DEFAULT / (float)new_rate );
+}
+
+void InputManager::setFreq441()
+{
+    setFreq(44100);
+}
+
+void InputManager::setFreq432()
+{
+    setFreq(43200);
+}
+
+void InputManager::setFreq528()
+{
+    setFreq(52800);
+}
+
+void InputManager::setFreq( int freq)
+{
+    playlist_item_t* p_node = playlist_CurrentPlayingItem( THEPL );
+    if (p_node != NULL && p_node->p_input != NULL)
+    {
+        unsigned int input_rate = p_node->p_input->es[0]->audio.i_rate;
+        float rate = 1.0;
+        rate = 1.0 * freq / input_rate;
+        var_SetFloat( THEPL, "rate", rate );
+        int index = 0;
+        if (freq == 43200)
+            index = 1;
+        if (freq == 52800)
+            index = 2;
+        if (m_freqActions[index] != NULL)
+        {
+            m_freqActions[index]->setChecked(true);
+        }
+        m_freqCur = freq;
+    }
+}
+
+unsigned int InputManager::getFreqCur()
+{
+    return m_freqCur;
+}
+
+void InputManager::setFreqActions(int index, QAction* pAction)
+{
+    if (index < 0 || index > 2)
+        return;
+
+    m_freqActions[index] = pAction;
 }
 
 void InputManager::jumpFwd()

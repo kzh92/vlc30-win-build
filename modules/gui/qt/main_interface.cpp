@@ -1255,11 +1255,11 @@ void MainInterface::setVLCWindowsTitle( const QString& aTitle )
 {
     if( aTitle.isEmpty() )
     {
-        setWindowTitle( qtr( "VLC media player" ) );
+        setWindowTitle( qtr( "HZ Player" ) );
     }
     else
     {
-        setWindowTitle( aTitle + " - " + qtr( "VLC media player" ) );
+        setWindowTitle( aTitle + " - " + qtr( "HZ Player" ) );
     }
 }
 
