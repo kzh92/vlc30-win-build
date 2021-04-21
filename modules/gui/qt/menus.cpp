@@ -913,7 +913,7 @@ void VLCMenuBar::PopupMenuControlEntries( QMenu *menu, intf_thread_t *p_intf,
     freqMenu->setTearOffEnabled( true );
 
     QActionGroup* alignmentGroup = new QActionGroup(menu);
-    action = freqMenu->addAction( qtr( "44100 Hz" ), THEMIM->getIM(),
+    action = freqMenu->addAction( qtr( "441Hz" ), THEMIM->getIM(),
                               SLOT( setFreq441() ) );
     action->setData( ITEM_RADIO );
     action->setCheckable(true);
@@ -922,7 +922,7 @@ void VLCMenuBar::PopupMenuControlEntries( QMenu *menu, intf_thread_t *p_intf,
     if (curFreq == 44100)
         action->setChecked(true);
 
-    action = freqMenu->addAction( qtr( "43200 Hz" ), THEMIM->getIM(),
+    action = freqMenu->addAction( qtr( "432Hz" ), THEMIM->getIM(),
                               SLOT( setFreq432() ) );
     action->setData( ITEM_RADIO );
     action->setCheckable(true);
@@ -931,13 +931,26 @@ void VLCMenuBar::PopupMenuControlEntries( QMenu *menu, intf_thread_t *p_intf,
     if (curFreq == 43200)
         action->setChecked(true);
 
-    action = freqMenu->addAction( qtr( "52800 Hz" ), THEMIM->getIM(),
+    action = freqMenu->addAction( qtr( "528Hz" ), THEMIM->getIM(),
                               SLOT( setFreq528() ) );
     action->setData( ITEM_RADIO );
     action->setCheckable(true);
     alignmentGroup->addAction(action);
     THEMIM->getIM()->setFreqActions(2, action);
     if (curFreq == 52800)
+        action->setChecked(true);
+
+    QString tmpStr = "";
+    if (curFreq > 0)
+        tmpStr.sprintf("(%d Hz)", curFreq);
+    tmpStr = qtr( "Custom" ) + tmpStr;
+    action = freqMenu->addAction( tmpStr , THEMIM->getIM(),
+                              SLOT( setFreqCustom() ) );
+    action->setData( ITEM_RADIO );
+    action->setCheckable(true);
+    alignmentGroup->addAction(action);
+    THEMIM->getIM()->setFreqActions(3, action);
+    if (curFreq != 52800 && curFreq != 43200 && curFreq != 44100 && curFreq > 0)
         action->setChecked(true);
 
     action = menu->addMenu( freqMenu );

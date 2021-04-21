@@ -40,6 +40,8 @@
 #include <QDir>
 #include <QSignalMapper>
 #include <QMessageBox>
+#include <QInputDialog>
+#include <QLineEdit>
 
 #include <assert.h>
 
@@ -940,6 +942,16 @@ void InputManager::setFreq528()
     setFreq(52800);
 }
 
+void InputManager::setFreqCustom()
+{
+    bool ok;
+    int inputValue = QInputDialog::getInt(NULL, qtr("Custom frequency"),
+                                         qtr("Frequency:"), m_freqCur,
+                                         0, 100000, 1, &ok);
+    if (ok && inputValue > 0)
+        setFreq(inputValue);
+}
+
 void InputManager::setFreq( int freq)
 {
     playlist_item_t* p_node = playlist_CurrentPlayingItem( THEPL );
@@ -949,15 +961,20 @@ void InputManager::setFreq( int freq)
         float rate = 1.0;
         rate = 1.0 * freq / input_rate;
         var_SetFloat( THEPL, "rate", rate );
-        int index = 0;
-        if (freq == 43200)
+        int index = -1;
+        if (freq == 44100)
+            index = 0;
+        else if (freq == 43200)
             index = 1;
-        if (freq == 52800)
+        else if (freq == 52800)
             index = 2;
-        if (m_freqActions[index] != NULL)
+        else
+            index = 3;
+        if (index > -1 && m_freqActions[index] != NULL)
         {
             m_freqActions[index]->setChecked(true);
         }
+
         m_freqCur = freq;
     }
 }

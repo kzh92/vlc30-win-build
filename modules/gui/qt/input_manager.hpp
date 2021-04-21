@@ -158,7 +158,7 @@ private:
     float           f_cache;
     bool            b_video;
     mtime_t         timeA, timeB;
-    QAction*        m_freqActions[3];
+    QAction*        m_freqActions[4];
     unsigned int    m_freqCur;
 
     void customEvent( QEvent * );
@@ -200,6 +200,7 @@ public slots:
     void setFreq441();
     void setFreq432();
     void setFreq528();
+    void setFreqCustom();
     void setFreq( int );
     void setFreqActions(int, QAction*);
     unsigned int getFreqCur();
