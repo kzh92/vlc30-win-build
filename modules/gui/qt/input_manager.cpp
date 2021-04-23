@@ -64,6 +64,37 @@ static inline void registerAndCheckEventIds( int start, int end )
  * But can also be used for VLM dialog or similar
  **********************************************************************/
 
+int get_freq()
+{
+    char *psz_dir = config_GetUserDir( VLC_CONFIG_DIR );
+    char extend_rc_path[1024] = { 0 };
+    sprintf(extend_rc_path, "%s/extend_rc", psz_dir);
+
+    int freq = 44000;
+    FILE* fp = fopen(extend_rc_path, "rb");
+    if(fp)
+    {
+        fread(&freq, sizeof(int), 1, fp);
+        fclose(fp);
+    }
+
+    return freq;
+}
+
+void set_freq(int freq)
+{
+    char *psz_dir = config_GetUserDir( VLC_CONFIG_DIR );
+    char extend_rc_path[1024] = { 0 };
+    sprintf(extend_rc_path, "%s/extend_rc", psz_dir);
+
+    FILE* fp = fopen(extend_rc_path, "wb");
+    if(fp)
+    {
+        fwrite(&freq, sizeof(int), 1, fp);
+        fclose(fp);
+    }
+}
+
 InputManager::InputManager( MainInputManager *mim, intf_thread_t *_p_intf) :
                            QObject( mim ), p_intf( _p_intf )
 {
@@ -80,7 +111,12 @@ InputManager::InputManager( MainInputManager *mim, intf_thread_t *_p_intf) :
     timeB        = 0;
     f_cache      = -1.; /* impossible initial value, different from all */
     memset(m_freqActions, 0, sizeof(m_freqActions));
-    m_freqCur    = 0;
+    // m_freqCur    = 0;
+    
+    // m_freqCur = get_freq();
+    m_freqCur = config_GetInt(p_intf, "freq");
+
+
     registerAndCheckEventIds( IMEvent::PositionUpdate, IMEvent::FullscreenControlPlanHide );
     registerAndCheckEventIds( PLEvent::PLItemAppended, PLEvent::PLEmpty );
 }
@@ -929,7 +965,7 @@ void InputManager::setRate( int new_rate )
 
 void InputManager::setFreq441()
 {
-    setFreq(44100);
+    setFreq(44000);
 }
 
 void InputManager::setFreq432()
@@ -946,10 +982,10 @@ void InputManager::setFreqCustom()
 {
     bool ok;
     int inputValue = QInputDialog::getInt(NULL, qtr("Custom frequency"),
-                                         qtr("Frequency:"), m_freqCur,
-                                         0, 100000, 1, &ok);
+                                         qtr("Frequency:"), m_freqCur / 100,
+                                         0, 440, 1, &ok);
     if (ok && inputValue > 0)
-        setFreq(inputValue);
+        setFreq(inputValue * 100);
 }
 
 void InputManager::setFreq( int freq)
@@ -961,22 +997,31 @@ void InputManager::setFreq( int freq)
         float rate = 1.0;
         rate = 1.0 * freq / input_rate;
         var_SetFloat( THEPL, "rate", rate );
-        int index = -1;
-        if (freq == 44100)
-            index = 0;
-        else if (freq == 43200)
-            index = 1;
-        else if (freq == 52800)
-            index = 2;
-        else
-            index = 3;
-        if (index > -1 && m_freqActions[index] != NULL)
-        {
-            m_freqActions[index]->setChecked(true);
-        }
-
-        m_freqCur = freq;
+        config_PutFloat(p_intf, "rate", rate);
     }
+    else
+    {
+        config_PutFloat(p_intf, "rate", freq / 44000.0f);
+        var_SetFloat( THEPL, "rate", freq / 44000.0f );
+    }
+
+    // set_freq(m_freqCur);
+    int index = -1;
+    if (freq == 44000)
+        index = 0;
+    else if (freq == 43200)
+        index = 1;
+    else if (freq == 52800)
+        index = 2;
+    else
+        index = 3;
+    if (index > -1 && m_freqActions[index] != NULL)
+    {
+        m_freqActions[index]->setChecked(true);
+    }
+
+    m_freqCur = freq;
+    config_PutInt(p_intf, "freq", m_freqCur);
 }
 
 unsigned int InputManager::getFreqCur()

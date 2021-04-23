@@ -1153,6 +1153,10 @@ static const char *const psz_recursive_list_text[] = {
      "Specifies the services discovery modules to preload, separated by " \
      "colons. Typical value is \"sap\"." )
 
+#define FREQ_TEXT N_("freq")
+#define FREQ_LONGTEXT N_( \
+    "freq")
+
 #define RANDOM_TEXT N_("Play files randomly forever")
 #define RANDOM_LONGTEXT N_( \
     "VLC will randomly play files in the playlist until interrupted.")
@@ -2068,6 +2072,7 @@ vlc_module_begin ()
     set_category( CAT_PLAYLIST )
     set_subcategory( SUBCAT_PLAYLIST_GENERAL )
     add_category_hint( N_("Playlist"), PLAYLIST_CAT_LONGTEXT , false )
+    add_integer("freq", 44000, FREQ_TEXT, FREQ_LONGTEXT, true);
     add_bool( "random", 0, RANDOM_TEXT, RANDOM_LONGTEXT, false )
         change_short('Z')
         change_safe()
