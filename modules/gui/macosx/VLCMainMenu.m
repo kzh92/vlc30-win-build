@@ -336,7 +336,7 @@
 - (void)initStrings
 {
     /* main menu */
-    [_about setTitle: [_NS("About VLC media player") \
+    [_about setTitle: [_NS("About HZ Player") \
                            stringByAppendingString: @"..."]];
     [_checkForUpdate setTitle: _NS("Check for Update...")];
     [_prefs setTitle: _NS("Preferences...")];
@@ -346,10 +346,10 @@
     [_add_intf setTitle: _NS("Add Interface")];
     [_add_intfMenu setTitle: _NS("Add Interface")];
     [_services setTitle: _NS("Services")];
-    [_hide setTitle: _NS("Hide VLC")];
+    [_hide setTitle: _NS("Hide HZ")];
     [_hide_others setTitle: _NS("Hide Others")];
     [_show_all setTitle: _NS("Show All")];
-    [_quit setTitle: _NS("Quit VLC")];
+    [_quit setTitle: _NS("Quit HZ")];
 
     [_fileMenu setTitle: _ANS("1:File")];
     [_open_generic setTitle: _NS("Advanced Open File...")];
@@ -486,7 +486,7 @@
     [_bring_atf setTitle: _NS("Bring All to Front")];
 
     [_helpMenu setTitle: _NS("Help")];
-    [_help setTitle: _NS("VLC media player Help...")];
+    [_help setTitle: _NS("HZ Player Help...")];
     [_license setTitle: _NS("License")];
     [_documentation setTitle: _NS("Online Documentation...")];
     [_website setTitle: _NS("VideoLAN Website...")];

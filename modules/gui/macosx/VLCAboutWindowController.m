@@ -91,7 +91,7 @@
     [o_copyright_field setStringValue: copyrightText];
 
     /* l10n */
-    [[self window] setTitle: _NS("About VLC media player")];
+    [[self window] setTitle: _NS("About HZ Player")];
     NSDictionary *stringAttributes = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:NSUnderlineStyleSingle], NSUnderlineStyleAttributeName, [NSColor VLCSecondaryLabelColor], NSForegroundColorAttributeName, [NSFont systemFontOfSize:13], NSFontAttributeName, nil];
     NSAttributedString *attrStr;
     attrStr = [[NSAttributedString alloc] initWithString:_NS("Credits") attributes:stringAttributes];
@@ -100,7 +100,7 @@
     [o_gpl_btn setAttributedTitle:attrStr];
     attrStr = [[NSAttributedString alloc] initWithString:_NS("Authors") attributes:stringAttributes];
     [o_authors_btn setAttributedTitle:attrStr];
-    [o_trademarks_txt setStringValue:_NS("VLC media player and VideoLAN are trademarks of the VideoLAN Association.")];
+    [o_trademarks_txt setStringValue:_NS("HZ Player and VideoLAN are trademarks of the VideoLAN Association.")];
 
     /* setup the creator / revision field */
     NSString *compiler;

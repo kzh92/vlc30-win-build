@@ -375,7 +375,7 @@
         }
     } else {
         /* Nothing playing */
-        title = _NS("VLC media player");
+        title = _NS("HZ Player");
         artist = _NS("Nothing playing");
     }
 

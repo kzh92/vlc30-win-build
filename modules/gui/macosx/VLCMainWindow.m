@@ -184,7 +184,7 @@ static const float f_min_window_height = 307.;
      */
 
     // Window title
-    [self setTitle:_NS("VLC media player")];
+    [self setTitle:_NS("HZ Player")];
 
     // Search Field
     [_searchField setToolTip:_NS("Search in Playlist")];
@@ -686,13 +686,13 @@ static const float f_min_window_height = 307.;
 
             [self.fspanel setStreamTitle: aString];
         } else {
-            [self setTitle: _NS("VLC media player")];
+            [self setTitle: _NS("HZ Player")];
             [self setRepresentedURL: nil];
         }
 
         vlc_object_release(p_input);
     } else {
-        [self setTitle: _NS("VLC media player")];
+        [self setTitle: _NS("HZ Player")];
         [self setRepresentedURL: nil];
     }
 }
@@ -1323,7 +1323,7 @@ static const float f_min_window_height = 307.;
             [self setHasShadow:NO];
             [self setHasShadow:YES];
 
-            [self setTitle: _NS("VLC media player")];
+            [self setTitle: _NS("HZ Player")];
 
             [self setContentMinSize: NSMakeSize(363., f_min_video_height + [[self controlsBar] height] + [self.titlebarView frame].size.height)];
         } else {

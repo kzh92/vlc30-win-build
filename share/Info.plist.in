@@ -135,12 +135,12 @@
 		<dict>
 			<key>LSItemContentTypes</key>
 			<array>
-				<string>org.videolan.vlc</string>
+				<string>org.videolan.hz</string>
 			</array>
 			<key>CFBundleTypeIconFile</key>
 			<string>playlist.icns</string>
 			<key>CFBundleTypeName</key>
-			<string>VLC file</string>
+			<string>HZ file</string>
 			<key>CFBundleTypeRole</key>
 			<string>Viewer</string>
 		</dict>
@@ -1374,25 +1374,25 @@
 		</dict>
 	</array>
 	<key>CFBundleExecutable</key>
-	<string>VLC</string>
+	<string>HZ</string>
 	<key>CFBundleIconFile</key>
-	<string>VLC.icns</string>
+	<string>HZ.icns</string>
 	<key>CFBundleIdentifier</key>
-	<string>org.videolan.vlc</string>
+	<string>org.videolan.hz</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>VLC media player</string>
+	<string>HZ Player</string>
 	<key>CFBundleDisplayName</key>
-	<string>VLC</string>
+	<string>HZ</string>
 	<key>CFBundleShortVersionString</key>
 	<string>@VERSION@</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleSignature</key>
-	<string>VLC#</string>
+	<string>HZ#</string>
 	<key>BreakpadProduct</key>
-	<string>VLC</string>
+	<string>HZ</string>
 	<key>BreakpadVendor</key>
 	<string>VideoLAN</string>
 	<key>BreakpadRequestComments</key>
@@ -1400,23 +1400,23 @@
 	<key>BreakpadURL</key>
 	<string>@BREAKPAD_URL@/reports</string>
 	<key>NSHumanReadableCopyright</key>
-	<string>Copyright (c) @COPYRIGHT_YEARS@ VLC authors and VideoLAN</string>
+	<string>Copyright (c) @COPYRIGHT_YEARS@ HZ authors and VideoLAN</string>
 	<key>NSCameraUsageDescription</key>
-	<string>VLC wants to access the camera as requested by the user.</string>
+	<string>HZ wants to access the camera as requested by the user.</string>
 	<key>NSMicrophoneUsageDescription</key>
-	<string>VLC wants to access the microphone as requested by the user.</string>
+	<string>HZ wants to access the microphone as requested by the user.</string>
 	<key>NSAppleEventsUsageDescription</key>
-	<string>VLC wants to pause and resume external media players.</string>
+	<string>HZ wants to pause and resume external media players.</string>
 	<key>NSDesktopFolderUsageDescription</key>
-	<string>VLC wants to access the desktop folder as requested by the user.</string>
+	<string>HZ wants to access the desktop folder as requested by the user.</string>
 	<key>NSDocumentsFolderUsageDescription</key>
-	<string>VLC wants to access the documents folder as requested by the user.</string>
+	<string>HZ wants to access the documents folder as requested by the user.</string>
 	<key>NSDownloadsFolderUsageDescription</key>
-	<string>VLC wants to access the downloads folder as requested by the user.</string>
+	<string>HZ wants to access the downloads folder as requested by the user.</string>
 	<key>NSNetworkVolumesUsageDescription</key>
-	<string>VLC wants to access a network volume as requested by the user.</string>
+	<string>HZ wants to access a network volume as requested by the user.</string>
 	<key>NSRemovableVolumesUsageDescription</key>
-	<string>VLC wants to access a removable volume as requested by the user.</string>
+	<string>HZ wants to access a removable volume as requested by the user.</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
@@ -1535,7 +1535,7 @@
 	<key>NSMainNibFile</key>
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>
-	<string>VLCApplication</string>
+	<string>HZApplication</string>
 	<key>NSSupportsAutomaticGraphicsSwitching</key>
 	<true/>
 	<key>SUPublicDSAKeyFile</key>
@@ -1544,24 +1544,24 @@
 	<array>
 		<dict>
 			<key>UTTypeDescription</key>
-			<string>VLC playlist file</string>
+			<string>HZ playlist file</string>
 			<key>UTTypeConformsTo</key>
 			<array>
 				<string>public.text</string>
 				<string>public.playlist</string>
 			</array>
 			<key>UTTypeIdentifier</key>
-			<string>org.videolan.vlc</string>
+			<string>org.videolan.hz</string>
 			<key>UTTypeTagSpecification</key>
 			<dict>
 				<key>public.mime-type</key>
 				<array>
-					<string>application/x-videolan-vlc</string>
-					<string>application/videolan-vlc</string>
+					<string>application/x-videolan-hz</string>
+					<string>application/videolan-hz</string>
 				</array>
 				<key>public.filename-extension</key>
 				<array>
-					<string>vlc</string>
+					<string>hz</string>
 				</array>
 			</dict>
 		</dict>
