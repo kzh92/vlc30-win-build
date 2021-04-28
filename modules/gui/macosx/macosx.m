@@ -53,6 +53,9 @@ void WindowClose  (vout_window_t *);
                          "videos in 'fullscreen'. The screen number correspondance can be found in "\
                          "the video device selection menu.")
 
+#define FREQ_TEXT N_("freq")
+#define FREQ_LONGTEXT N_("freq")
+
 #define OPAQUENESS_TEXT N_("Opaqueness")
 #define OPAQUENESS_LONGTEXT N_("Set the transparency of the video output. 1 is non-transparent (default) " \
                                 "0 is fully transparent.")
@@ -195,6 +198,7 @@ vlc_module_begin()
 
         set_section(N_("Video output"), 0)
         add_integer("macosx-vdev", 0, VDEV_TEXT, VDEV_LONGTEXT, false)
+        add_integer("freq", 0, FREQ_TEXT, FREQ_LONGTEXT, false)
         add_float_with_range("macosx-opaqueness", 1, 0, 1, OPAQUENESS_TEXT, OPAQUENESS_LONGTEXT, true);
         add_bool("macosx-black", false, BLACK_TEXT, BLACK_LONGTEXT, false)
 vlc_module_end()

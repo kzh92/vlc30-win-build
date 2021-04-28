@@ -88,6 +88,7 @@ libmacosx_plugin_la_SOURCES = \
 	gui/macosx/VLCRendererItem.h gui/macosx/VLCRendererItem.m \
 	gui/macosx/VLCRendererMenuController.h gui/macosx/VLCRendererMenuController.m \
 	gui/macosx/VLCResumeDialogController.h gui/macosx/VLCResumeDialogController.m \
+	gui/macosx/CustomFreqDialogController.h gui/macosx/CustomFreqDialogController.m \
 	gui/macosx/VLCSourceListItem.h gui/macosx/VLCSourceListItem.m \
 	gui/macosx/VLCSourceListTableCellView.h gui/macosx/VLCSourceListTableCellView.m \
 	gui/macosx/VLCSourceListBadgeButton.h gui/macosx/VLCSourceListBadgeButton.m \
@@ -149,6 +150,7 @@ nodist_libmacosx_plugin_la_SOURCES = \
 	gui/macosx/UI/PopupPanel.nib \
 	gui/macosx/UI/Preferences.nib \
 	gui/macosx/UI/ResumeDialog.nib \
+	gui/macosx/UI/CustomFreqDialogController.nib \
 	gui/macosx/UI/SimplePreferences.nib \
 	gui/macosx/UI/StreamOutput.nib \
 	gui/macosx/UI/SyncTracks.nib \
@@ -178,6 +180,7 @@ EXTRA_DIST += \
 	gui/macosx/UI/PopupPanel.xib \
 	gui/macosx/UI/Preferences.xib \
 	gui/macosx/UI/ResumeDialog.xib \
+	gui/macosx/UI/CustomFreqDialogController.xib \
 	gui/macosx/UI/SimplePreferences.xib \
 	gui/macosx/UI/StreamOutput.xib \
 	gui/macosx/UI/SyncTracks.xib \

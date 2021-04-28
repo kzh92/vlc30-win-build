@@ -51,6 +51,8 @@
 #import "VLCTimeSelectionPanelController.h"
 #import "NSScreen+VLCAdditions.h"
 #import "VLCRendererMenuController.h"
+#import "CustomFreqDialogController.h"
+#import "VLCPopupPanelController.h"
 
 #ifdef HAVE_SPARKLE
 #import <Sparkle/Sparkle.h>
@@ -67,6 +69,7 @@
     NSMenu *_playlistTableColumnsContextMenu;
 
     __strong VLCTimeSelectionPanelController *_timeSelectionPanel;
+    int _freqCur;
 }
 @end
 
@@ -205,6 +208,10 @@
     [_double_window setKeyEquivalent: [stringUtility VLCKeyToString: keyString]];
     [_double_window setKeyEquivalentModifierMask: [stringUtility VLCModifiersToCocoa:keyString]];
     FREENULL(key);
+    
+    _freqCur = (int)config_GetInt(p_intf, "freq");
+    if(_freqCur <= 0)
+        _freqCur = 440;
 
     [self setSubmenusEnabled: FALSE];
 
@@ -254,7 +261,7 @@
         [mitem setTag:x];
         [mitem setTarget:self];
     }
-    char *psz_config = config_GetPsz(p_intf, "video-filter");
+    char *psz_config = config_GetPsz(getIntf(), "video-filter");
     if (psz_config) {
         if (!strstr(psz_config, "postproc"))
             [[_postprocessingMenu itemAtIndex:0] setState:NSOnState];
@@ -331,6 +338,16 @@
         if (p_item->value.i == p_item->list.i[i])
             [mi setState:NSOnState];
     }
+    
+    [_freq440 setState:NSOffState];
+    [_freq432 setState:NSOffState];
+    [_freqCustom setState:NSOffState];
+    if(_freqCur == 440)
+        [_freq440 setState:NSOnState];
+    else if(_freqCur == 432)
+        [_freq432 setState:NSOnState];
+    else
+        [_freqCustom setState:NSOnState];
 }
 
 - (void)initStrings
@@ -759,6 +776,49 @@
         [[VLCCoreInteraction sharedInstance] repeatAll];
     else
         [[VLCCoreInteraction sharedInstance] repeatOff];
+}
+
+-(void) updateFreqMenu {
+    [_freq440 setState:NSOffState];
+    [_freq432 setState:NSOffState];
+    [_freqCustom setState:NSOffState];
+    if(_freqCur == 440)
+        [_freq440 setState:NSOnState];
+    else if(_freqCur == 432)
+        [_freq432 setState:NSOnState];
+    else
+        [_freqCustom setState:NSOnState];
+    
+    config_PutInt(getIntf(), "freq", _freqCur);
+    
+    playlist_t* p_playlist = pl_Get(getIntf());
+    var_SetFloat(p_playlist, "rate", _freqCur / 440.0f);
+    config_PutFloat(getIntf(), "rate", _freqCur / 440.0f);
+}
+
+- (IBAction)freq440_clicked:(id)sender {
+    _freqCur = 440;
+    
+    [self updateFreqMenu];
+}
+
+- (IBAction)freq_430_clicked:(id)sender {
+    _freqCur = 432;
+    [self updateFreqMenu];
+}
+
+- (IBAction)freqCustom_clicked:(id)sender {
+    CustomFreqDialogController* customFreqDialog = [[VLCMain sharedInstance] costomFreqDialog];
+    customFreqDialog.strFreq = [NSString stringWithFormat:@"%d", _freqCur];
+    
+    [customFreqDialog runModalForWindow:[NSApp mainWindow]
+                         completionHandler:^(NSInteger returnCode, int customFreq) {
+        
+        if(returnCode == NSOKButton) {
+            _freqCur = customFreq;
+            [self updateFreqMenu];
+        }
+    }];
 }
 
 - (IBAction)forward:(id)sender

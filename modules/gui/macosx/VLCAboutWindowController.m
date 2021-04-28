@@ -126,10 +126,10 @@
 
     /* setup join us! */
     NSString *joinus = toNSStr(_(""
-                                 "<p>VLC media player is a free and open source media player, encoder, and "
+                                 "<p>HZ Player is a free and open source media player, encoder, and "
                                  "streamer made by the volunteers of the <a href=\"https://www.videolan.org/"
                                  "\"><span style=\" text-decoration: underline; color:#0057ae;\">VideoLAN</"
-                                 "span></a> community.</p><p>VLC uses its internal codecs, works on "
+                                 "span></a> community.</p><p>HZ uses its internal codecs, works on "
                                  "essentially every popular platform, and can read almost all files, CDs, "
                                  "DVDs, network streams, capture cards and other media formats!</p><p><a href="
                                  "\"https://www.videolan.org/contribute/\"><span style=\" text-decoration: "

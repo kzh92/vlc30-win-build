@@ -59,8 +59,10 @@
 #import "VLCTrackSynchronizationWindowController.h"
 #import "VLCExtensionsManager.h"
 #import "VLCResumeDialogController.h"
+#import "CustomFreqDialogController.h"
 #import "VLCLogWindowController.h"
 #import "VLCConvertAndSaveWindowController.h"
+
 
 #import "VLCVideoEffectsWindowController.h"
 #import "VLCAudioEffectsWindowController.h"
@@ -184,6 +186,7 @@ static int ShowController(vlc_object_t *p_this, const char *psz_variable,
     VLCBookmarksWindowController *_bookmarks;
     VLCCoreInteraction *_coreinteraction;
     VLCResumeDialogController *_resume_dialog;
+    CustomFreqDialogController* _custom_freq_dialog;
     VLCInputManager *_input_manager;
     VLCPlaylist *_playlist;
     VLCLogWindowController *_messagePanelController;
@@ -651,6 +654,14 @@ static VLCMain *sharedInstance = nil;
         _resume_dialog = [[VLCResumeDialogController alloc] init];
 
     return _resume_dialog;
+}
+
+- (CustomFreqDialogController *)costomFreqDialog
+{
+    if (!_custom_freq_dialog)
+        _custom_freq_dialog = [[CustomFreqDialogController alloc] init];
+
+    return _custom_freq_dialog;
 }
 
 - (BOOL)activeVideoPlayback

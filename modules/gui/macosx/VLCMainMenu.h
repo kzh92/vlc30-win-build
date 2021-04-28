@@ -90,6 +90,11 @@
 @property (readwrite, weak) IBOutlet NSMenuItem *loop;
 @property (readwrite, weak) IBOutlet NSMenuItem *AtoBloop;
 @property (readwrite, weak) IBOutlet NSMenuItem *quitAfterPB;
+@property (readwrite, weak) IBOutlet NSMenuItem *freq440;
+@property (readwrite, weak) IBOutlet NSMenuItem *freq432;
+@property (readwrite, weak) IBOutlet NSMenuItem *freqCustom;
+
+
 @property (readwrite, weak) IBOutlet NSMenuItem *fwd;
 @property (readwrite, weak) IBOutlet NSMenuItem *bwd;
 @property (readwrite, weak) IBOutlet NSMenuItem *jumpToTime;
