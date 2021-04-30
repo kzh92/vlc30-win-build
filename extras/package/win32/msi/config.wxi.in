@@ -1,7 +1,7 @@
 <?xml version='1.0'?>
 <Include>
-    <?define ShortProductName = "VLC" ?>
-    <?define ProductName = "VLC media player" ?>
+    <?define ShortProductName = "HZ" ?>
+    <?define ProductName = "HZ player" ?>
     <?define Manufacturer = "VideoLAN" ?>
     <?define AboutURL = "https://www.videolan.org/vlc/" ?>
     <?define SupportURL = "https://www.videolan.org/support/" ?>

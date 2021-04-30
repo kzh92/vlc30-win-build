@@ -115,9 +115,9 @@
                         </constraints>
                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" allowsEditingTextAttributes="YES" id="2285">
                             <font key="font" metaFont="system"/>
-                            <string key="title">HZ Player is a free and open source media player, encoder and streamer made by the volunteers of the VideoLAN community.
-HZ uses its internal codecs and works on essentially every popular platform and can read almost every files, CDs, DVDs, network streams, capture cards and other media formats!
-Help and join us!.</string>
+                            <string key="title">HZ Player is a free and open source media player based on the popular VLC Media Player, encoder, and streamer made by the volunteers of the VideoLAN community.
+HZ Player is brought to you by SYQEL LLC.
+HZ uses its internal codecs, works on essentially every popular platform, and can read almost all files, CDs, DVDs, network streams, capture cards and other media formats!</string>
                             <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
@@ -211,6 +211,6 @@ Help and join us!.</string>
         </window>
     </objects>
     <resources>
-        <image name="VLC" width="512" height="512"/>
+        <image name="VLC" width="256" height="256"/>
     </resources>
 </document>

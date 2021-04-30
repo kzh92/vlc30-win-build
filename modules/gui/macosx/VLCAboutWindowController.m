@@ -100,7 +100,7 @@
     [o_gpl_btn setAttributedTitle:attrStr];
     attrStr = [[NSAttributedString alloc] initWithString:_NS("Authors") attributes:stringAttributes];
     [o_authors_btn setAttributedTitle:attrStr];
-    [o_trademarks_txt setStringValue:_NS("HZ Player and VideoLAN are trademarks of the VideoLAN Association.")];
+    [o_trademarks_txt setStringValue:_NS("VLC Media Player and VideoLAN are trademarks of the VideoLAN Association.")];
 
     /* setup the creator / revision field */
     NSString *compiler;
@@ -126,12 +126,11 @@
 
     /* setup join us! */
     NSString *joinus = toNSStr(_(""
-                                 "<p>HZ Player is a free and open source media player, encoder, and "
-                                 "streamer made by the volunteers of the <a href=\"https://www.videolan.org/"
+                                 "<p>HZ Player is a free and open source media player based on the popular VLC Media Player, "
+                                 "encoder, and streamer made by the volunteers of the <a href=\"https://www.videolan.org/"
                                  "\"><span style=\" text-decoration: underline; color:#0057ae;\">VideoLAN</"
-                                 "span></a> community.</p><p>HZ uses its internal codecs, works on "
-                                 "essentially every popular platform, and can read almost all files, CDs, "
-                                 "DVDs, network streams, capture cards and other media formats!</p><p><a href="
+                                 "span></a> community.</p> <p>HZ Player is brought to you by SYQEL LLC. HZ Player uses VLC's internal codecs, works on "
+                                 "essentially every popular platform, and can read almost all files, CDs, DVDs, network streams, capture cards and other media formats!</p><a href="
                                  "\"https://www.videolan.org/contribute/\"><span style=\" text-decoration: "
                                  "underline; color:#0057ae;\">Help and join us!</span></a>"));
 
