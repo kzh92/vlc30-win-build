@@ -983,27 +983,33 @@ void InputManager::setFreqCustom()
     bool ok;
     int inputValue = QInputDialog::getInt(NULL, qtr("Custom frequency"),
                                          qtr("Frequency:"), m_freqCur / 100,
-                                         0, 440, 1, &ok);
+                                         0, 1000, 1, &ok);
     if (ok && inputValue > 0)
         setFreq(inputValue * 100);
 }
 
 void InputManager::setFreq( int freq)
 {
-    playlist_item_t* p_node = playlist_CurrentPlayingItem( THEPL );
-    if (p_node != NULL && p_node->p_input != NULL)
-    {
-        unsigned int input_rate = p_node->p_input->es[0]->audio.i_rate;
-        float rate = 1.0;
-        rate = 1.0 * freq / input_rate;
-        var_SetFloat( THEPL, "rate", rate );
-        config_PutFloat(p_intf, "rate", rate);
-    }
-    else
-    {
+    
+    // playlist_item_t* p_node = playlist_CurrentPlayingItem( THEPL );
+    // if (p_node != NULL && p_node->p_input != NULL)
+    // {
+    //     unsigned int input_rate = p_node->p_input->es[0]->audio.i_rate;
+    //     float rate = 1.0;
+    //     rate = 1.0 * freq / input_rate;
+    //     var_SetFloat( THEPL, "rate", rate );
+    //     config_PutFloat(p_intf, "rate", rate);
+    // }
+    // else
+    // {        
         config_PutFloat(p_intf, "rate", freq / 44000.0f);
         var_SetFloat( THEPL, "rate", freq / 44000.0f );
-    }
+    // }
+
+    if(freq != 44000)
+        config_PutInt(p_intf, "audio-time-stretch", 0);
+    else
+        config_PutInt(p_intf, "audio-time-stretch", 0);
 
     // set_freq(m_freqCur);
     int index = -1;
