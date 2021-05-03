@@ -91,7 +91,13 @@ AboutDialog::AboutDialog( intf_thread_t *_p_intf)
     ui.title->setText("<html><head/><body><p><span style=\" font-size:26pt; color:#353535;\"> " + qtr( "HZ Player" ) + " </span></p></body></html>");
 
     ui.MainBlabla->setText("<html><head/><body>" +
-    qtr( "<p>HZ Player is a free and open source media player, encoder, and streamer made by the volunteers of the <a href=\"your url goes here\"><span style=\" text-decoration: underline; color:#0057ae;\">VideoLAN</span></a> community.</p><p>VLC uses its internal codecs, works on essentially every popular platform, and can read almost all files, CDs, DVDs, network streams, capture cards and other media formats!</p><p><a href=\"http://www.videolan.org/contribute/\"><span style=\" text-decoration: underline; color:#0057ae;\">Help and join us!</span></a>" ) +
+    qtr( "<p>HZ Player is a free and open source media player based on the popular VLC Media Player, "
+                                 "encoder, and streamer made by the volunteers of the <a href=\"https://www.videolan.org/"
+                                 "\"><span style=\" text-decoration: underline; color:#0057ae;\">VideoLAN</"
+                                 "span></a> community.</p> <p>HZ Player is brought to you by SYQEL LLC. HZ Player uses VLC's internal codecs, works on "
+                                 "essentially every popular platform, and can read almost all files, CDs, DVDs, network streams, capture cards and other media formats!</p><a href="
+                                 "\"https://www.videolan.org/contribute/\"><span style=\" text-decoration: "
+                                 "underline; color:#0057ae;\">Help and join us!</span></a>" ) +
     "</p></body> </html>");
 
 #if 0
